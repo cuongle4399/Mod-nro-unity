@@ -208,7 +208,7 @@ namespace Mod.CuongLe
             ModProCuongLe.Update();
             if (thongBao && GameCanvas.gameTick % 1200 == 0)
             {
-                GameScr.gI().chatVip("Modnrocl.online: Check Kelog liên hệ Zalo : 0865134328 cân mọi kèo, cứ alo là bú :v");
+                GameScr.gI().chatVip("Check Kelog liên hệ Zalo : 0865134328 cân mọi kèo, cứ alo là bú :v");
                 thongBao = false;
             }
             if ((!MobCapcha.isAttack || !MobCapcha.explode) && GameScr.gI().mobCapcha != null)
