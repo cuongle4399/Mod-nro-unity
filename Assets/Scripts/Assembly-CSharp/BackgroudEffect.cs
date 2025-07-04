@@ -35,23 +35,23 @@ public class BackgroudEffect
 
 	private bool isFly;
 
-	public static Image imgSnow;
+	//public static Image imgSnow;
 
-	public static Image imgHatMua;
+	//public static Image imgHatMua;
 
-	public static Image imgMua1;
+	//public static Image imgMua1;
 
-	public static Image imgMua2;
+	//public static Image imgMua2;
 
-	public static Image imgSao;
+	//public static Image imgSao;
 
-	private static Image imgLacay;
+	//private static Image imgLacay;
 
-	private static Image imgShip;
+	//private static Image imgShip;
 
-	private static Image imgFire1;
+	//private static Image imgFire1;
 
-	private static Image imgFire2;
+	//private static Image imgFire2;
 
 	private int[] type;
 
@@ -147,264 +147,264 @@ public class BackgroudEffect
 
 	public BackgroudEffect(int typeS)
 	{
-		isFog = true;
-		initCloud();
-		typeEff = typeS;
-		switch (typeEff)
-		{
-		case 10:
-		{
-			this.num = 30;
-			x = new int[this.num];
-			y = new int[this.num];
-			wP = new int[this.num];
-			vx = new int[this.num];
-			int num = 0;
-			for (int l = 0; l < this.num; l++)
-			{
-				x[l] = Res.abs(Res.random(0, GameCanvas.w)) + GameScr.cmx;
-				num++;
-				if (num > this.num / 2)
-				{
-					y[l] = Res.abs(Res.random(20, 60));
-					wP[l] = 10;
-				}
-				else
-				{
-					y[l] = Res.abs(Res.random(0, 20));
-					wP[l] = 7;
-				}
-				vx[l] = wP[l] / 2 - 2;
-			}
-			break;
-		}
-		case 9:
-		{
-			if (imgChamTron1 == null)
-			{
-				imgChamTron1 = GameCanvas.loadImageRMS("/bg/cham-tron1.png");
-			}
-			if (imgChamTron2 == null)
-			{
-				imgChamTron2 = GameCanvas.loadImageRMS("/bg/cham-tron2.png");
-			}
-			this.num = 20;
-			x = new int[this.num];
-			y = new int[this.num];
-			wP = new int[this.num];
-			vx = new int[this.num];
-			for (int i = 0; i < this.num; i++)
-			{
-				x[i] = Res.abs(Res.random(0, GameCanvas.w));
-				y[i] = Res.abs(Res.random(10, 80));
-				wP[i] = Res.abs(Res.random(1, 3));
-				vx[i] = wP[i];
-			}
-			break;
-		}
-		case 0:
-		case 12:
-		{
-			if (imgHatMua == null)
-			{
-				imgHatMua = GameCanvas.loadImageRMS("/bg/mua.png");
-			}
-			if (imgMua1 == null)
-			{
-				imgMua1 = GameCanvas.loadImageRMS("/bg/mua1.png");
-			}
-			if (imgMua2 == null)
-			{
-				imgMua2 = GameCanvas.loadImageRMS("/bg/mua2.png");
-			}
-			sum = Res.random(GameCanvas.w / 3, GameCanvas.w / 2);
-			x = new int[sum];
-			y = new int[sum];
-			vx = new int[sum];
-			vy = new int[sum];
-			type = new int[sum];
-			t = new int[sum];
-			frame = new int[sum];
-			isRainEffect = new bool[sum];
-			activeEff = new bool[sum];
-			for (int k = 0; k < sum; k++)
-			{
-				y[k] = Res.random(-10, GameCanvas.h + 100) + GameScr.cmy;
-				x[k] = Res.random(-10, GameCanvas.w + 300) + GameScr.cmx;
-				t[k] = Res.random(0, 1);
-				vx[k] = -12;
-				vy[k] = 12;
-				type[k] = Res.random(1, 3);
-				isRainEffect[k] = false;
-				if (type[k] == 2 && k % 2 == 0)
-				{
-					isRainEffect[k] = true;
-				}
-				activeEff[k] = false;
-				frame[k] = Res.random(1, 2);
-			}
-			break;
-		}
-		case 1:
-		case 2:
-		case 5:
-		case 6:
-		case 7:
-		case 11:
-		case 15:
-		{
-			if (typeEff == 1)
-			{
-				imgLacay = GameCanvas.loadImageRMS("/bg/lacay.png");
-				PIXEL = 10;
-			}
-			if (typeEff == 2)
-			{
-				imgLacay = GameCanvas.loadImageRMS("/bg/lacay2.png");
-				PIXEL = 18;
-			}
-			if (typeEff == 5)
-			{
-				imgLacay = GameCanvas.loadImageRMS("/bg/lacay3.png");
-				PIXEL = 14;
-			}
-			if (typeEff == 6)
-			{
-				imgLacay = GameCanvas.loadImageRMS("/bg/lacay4.png");
-				PIXEL = 14;
-			}
-			if (typeEff == 7)
-			{
-				imgLacay = GameCanvas.loadImageRMS("/bg/lacay5.png");
-				PIXEL = 12;
-			}
-			if (typeEff == 11)
-			{
-				imgLacay = GameCanvas.loadImageRMS("/bg/tuyet.png");
-			}
-			if (typeEff == 15)
-			{
-				Small small = SmallImage.imgNew[11120];
-				if (small == null)
-				{
-					SmallImage.createImage(11120);
-				}
-				PIXEL = 16;
-			}
-			sum = Res.random(15, 25);
-			if (typeEff == 11)
-			{
-				sum = 100;
-			}
-			x = new int[sum];
-			y = new int[sum];
-			vx = new int[sum];
-			vy = new int[sum];
-			t = new int[sum];
-			frame = new int[sum];
-			activeEff = new bool[sum];
-			for (int j = 0; j < sum; j++)
-			{
-				x[j] = Res.random(-10, TileMap.pxw + 10);
-				y[j] = Res.random(0, TileMap.pxh);
-				frame[j] = Res.random(0, 1);
-				t[j] = Res.random(0, 1);
-				vx[j] = Res.random(-3, 3);
-				vy[j] = Res.random(1, 4);
-				if (typeEff == 11)
-				{
-					frame[j] = Res.random(0, 2);
-					vx[j] = Res.abs(Res.random(1, 3));
-					vy[j] = Res.abs(Res.random(1, 3));
-				}
-				if (typeEff == 15)
-				{
-					frame[j] = Res.random(0, 2);
-					vx[j] = Res.abs(Res.random(1, 3));
-					vy[j] = Res.abs(Res.random(1, 3));
-				}
-			}
-			break;
-		}
-		case 4:
-		{
-			sum = Res.random(5, 10);
-			if (imgSao == null)
-			{
-				imgSao = GameCanvas.loadImageRMS("/bg/sao.png");
-			}
-			x = new int[sum];
-			y = new int[sum];
-			frame = new int[sum];
-			t = new int[sum];
-			tick = new int[sum];
-			for (int m = 0; m < sum; m++)
-			{
-				x[m] = Res.random(0, GameCanvas.w);
-				y[m] = Res.random(0, 50);
-				if (m % 2 == 0)
-				{
-					tick[m] = 0;
-				}
-				else if (m % 3 == 0)
-				{
-					tick[m] = 1;
-				}
-				else if (m % 4 == 0)
-				{
-					tick[m] = 2;
-				}
-				else
-				{
-					tick[m] = 3;
-				}
-				t[m] = Res.random(0, 10);
-			}
-			break;
-		}
-		case 3:
-			GameCanvas.isBoltEff = true;
-			break;
-		case 8:
-			tStart = Res.random(100, 300);
-			if (imgShip == null)
-			{
-				imgShip = GameCanvas.loadImageRMS("/bg/ship.png");
-			}
-			if (imgFire1 == null)
-			{
-				imgFire1 = GameCanvas.loadImageRMS("/bg/fire1.png");
-			}
-			if (imgFire2 == null)
-			{
-				imgFire2 = GameCanvas.loadImageRMS("/bg/fire2.png");
-			}
-			isFly = false;
-			reloadShip();
-			break;
-		case 13:
-			if (Res.abs(Res.random(0, 2)) == 0)
-			{
-				if (Res.abs(Res.random(0, 2)) == 0)
-				{
-					isPaintFar = true;
-				}
-				else
-				{
-					isPaintFar = false;
-				}
-				nCloud = Res.abs(Res.random(2, 5));
-				initCloud();
-			}
-			break;
-		case 14:
-			if (Res.abs(Res.random(0, 2)) == 0)
-			{
-				isFog = true;
-				initCloud();
-			}
-			break;
-		}
+		//	isFog = true;
+		//	initCloud();
+		//	typeEff = typeS;
+		//	switch (typeEff)
+		//	{
+		//	case 10:
+		//	{
+		//		this.num = 30;
+		//		x = new int[this.num];
+		//		y = new int[this.num];
+		//		wP = new int[this.num];
+		//		vx = new int[this.num];
+		//		int num = 0;
+		//		for (int l = 0; l < this.num; l++)
+		//		{
+		//			x[l] = Res.abs(Res.random(0, GameCanvas.w)) + GameScr.cmx;
+		//			num++;
+		//			if (num > this.num / 2)
+		//			{
+		//				y[l] = Res.abs(Res.random(20, 60));
+		//				wP[l] = 10;
+		//			}
+		//			else
+		//			{
+		//				y[l] = Res.abs(Res.random(0, 20));
+		//				wP[l] = 7;
+		//			}
+		//			vx[l] = wP[l] / 2 - 2;
+		//		}
+		//		break;
+		//	}
+		//	case 9:
+		//	{
+		//		if (imgChamTron1 == null)
+		//		{
+		//			imgChamTron1 = GameCanvas.loadImageRMS("/bg/cham-tron1.png");
+		//		}
+		//		if (imgChamTron2 == null)
+		//		{
+		//			imgChamTron2 = GameCanvas.loadImageRMS("/bg/cham-tron2.png");
+		//		}
+		//		this.num = 20;
+		//		x = new int[this.num];
+		//		y = new int[this.num];
+		//		wP = new int[this.num];
+		//		vx = new int[this.num];
+		//		for (int i = 0; i < this.num; i++)
+		//		{
+		//			x[i] = Res.abs(Res.random(0, GameCanvas.w));
+		//			y[i] = Res.abs(Res.random(10, 80));
+		//			wP[i] = Res.abs(Res.random(1, 3));
+		//			vx[i] = wP[i];
+		//		}
+		//		break;
+		//	}
+		//	case 0:
+		//	case 12:
+		//	{
+		//		if (imgHatMua == null)
+		//		{
+		//			imgHatMua = GameCanvas.loadImageRMS("/bg/mua.png");
+		//		}
+		//		if (imgMua1 == null)
+		//		{
+		//			imgMua1 = GameCanvas.loadImageRMS("/bg/mua1.png");
+		//		}
+		//		if (imgMua2 == null)
+		//		{
+		//			imgMua2 = GameCanvas.loadImageRMS("/bg/mua2.png");
+		//		}
+		//		sum = Res.random(GameCanvas.w / 3, GameCanvas.w / 2);
+		//		x = new int[sum];
+		//		y = new int[sum];
+		//		vx = new int[sum];
+		//		vy = new int[sum];
+		//		type = new int[sum];
+		//		t = new int[sum];
+		//		frame = new int[sum];
+		//		isRainEffect = new bool[sum];
+		//		activeEff = new bool[sum];
+		//		for (int k = 0; k < sum; k++)
+		//		{
+		//			y[k] = Res.random(-10, GameCanvas.h + 100) + GameScr.cmy;
+		//			x[k] = Res.random(-10, GameCanvas.w + 300) + GameScr.cmx;
+		//			t[k] = Res.random(0, 1);
+		//			vx[k] = -12;
+		//			vy[k] = 12;
+		//			type[k] = Res.random(1, 3);
+		//			isRainEffect[k] = false;
+		//			if (type[k] == 2 && k % 2 == 0)
+		//			{
+		//				isRainEffect[k] = true;
+		//			}
+		//			activeEff[k] = false;
+		//			frame[k] = Res.random(1, 2);
+		//		}
+		//		break;
+		//	}
+		//	case 1:
+		//	case 2:
+		//	case 5:
+		//	case 6:
+		//	case 7:
+		//	case 11:
+		//	case 15:
+		//	{
+		//		if (typeEff == 1)
+		//		{
+		//			imgLacay = GameCanvas.loadImageRMS("/bg/lacay.png");
+		//			PIXEL = 10;
+		//		}
+		//		if (typeEff == 2)
+		//		{
+		//			imgLacay = GameCanvas.loadImageRMS("/bg/lacay2.png");
+		//			PIXEL = 18;
+		//		}
+		//		if (typeEff == 5)
+		//		{
+		//			imgLacay = GameCanvas.loadImageRMS("/bg/lacay3.png");
+		//			PIXEL = 14;
+		//		}
+		//		if (typeEff == 6)
+		//		{
+		//			imgLacay = GameCanvas.loadImageRMS("/bg/lacay4.png");
+		//			PIXEL = 14;
+		//		}
+		//		if (typeEff == 7)
+		//		{
+		//			imgLacay = GameCanvas.loadImageRMS("/bg/lacay5.png");
+		//			PIXEL = 12;
+		//		}
+		//		if (typeEff == 11)
+		//		{
+		//			imgLacay = GameCanvas.loadImageRMS("/bg/tuyet.png");
+		//		}
+		//		if (typeEff == 15)
+		//		{
+		//			Small small = SmallImage.imgNew[11120];
+		//			if (small == null)
+		//			{
+		//				SmallImage.createImage(11120);
+		//			}
+		//			PIXEL = 16;
+		//		}
+		//		sum = Res.random(15, 25);
+		//		if (typeEff == 11)
+		//		{
+		//			sum = 100;
+		//		}
+		//		x = new int[sum];
+		//		y = new int[sum];
+		//		vx = new int[sum];
+		//		vy = new int[sum];
+		//		t = new int[sum];
+		//		frame = new int[sum];
+		//		activeEff = new bool[sum];
+		//		for (int j = 0; j < sum; j++)
+		//		{
+		//			x[j] = Res.random(-10, TileMap.pxw + 10);
+		//			y[j] = Res.random(0, TileMap.pxh);
+		//			frame[j] = Res.random(0, 1);
+		//			t[j] = Res.random(0, 1);
+		//			vx[j] = Res.random(-3, 3);
+		//			vy[j] = Res.random(1, 4);
+		//			if (typeEff == 11)
+		//			{
+		//				frame[j] = Res.random(0, 2);
+		//				vx[j] = Res.abs(Res.random(1, 3));
+		//				vy[j] = Res.abs(Res.random(1, 3));
+		//			}
+		//			if (typeEff == 15)
+		//			{
+		//				frame[j] = Res.random(0, 2);
+		//				vx[j] = Res.abs(Res.random(1, 3));
+		//				vy[j] = Res.abs(Res.random(1, 3));
+		//			}
+		//		}
+		//		break;
+		//	}
+		//	case 4:
+		//	{
+		//		sum = Res.random(5, 10);
+		//		if (imgSao == null)
+		//		{
+		//			imgSao = GameCanvas.loadImageRMS("/bg/sao.png");
+		//		}
+		//		x = new int[sum];
+		//		y = new int[sum];
+		//		frame = new int[sum];
+		//		t = new int[sum];
+		//		tick = new int[sum];
+		//		for (int m = 0; m < sum; m++)
+		//		{
+		//			x[m] = Res.random(0, GameCanvas.w);
+		//			y[m] = Res.random(0, 50);
+		//			if (m % 2 == 0)
+		//			{
+		//				tick[m] = 0;
+		//			}
+		//			else if (m % 3 == 0)
+		//			{
+		//				tick[m] = 1;
+		//			}
+		//			else if (m % 4 == 0)
+		//			{
+		//				tick[m] = 2;
+		//			}
+		//			else
+		//			{
+		//				tick[m] = 3;
+		//			}
+		//			t[m] = Res.random(0, 10);
+		//		}
+		//		break;
+		//	}
+		//	case 3:
+		//		GameCanvas.isBoltEff = true;
+		//		break;
+		//	case 8:
+		//		tStart = Res.random(100, 300);
+		//		if (imgShip == null)
+		//		{
+		//			imgShip = GameCanvas.loadImageRMS("/bg/ship.png");
+		//		}
+		//		if (imgFire1 == null)
+		//		{
+		//			imgFire1 = GameCanvas.loadImageRMS("/bg/fire1.png");
+		//		}
+		//		if (imgFire2 == null)
+		//		{
+		//			imgFire2 = GameCanvas.loadImageRMS("/bg/fire2.png");
+		//		}
+		//		isFly = false;
+		//		reloadShip();
+		//		break;
+		//	case 13:
+		//		if (Res.abs(Res.random(0, 2)) == 0)
+		//		{
+		//			if (Res.abs(Res.random(0, 2)) == 0)
+		//			{
+		//				isPaintFar = true;
+		//			}
+		//			else
+		//			{
+		//				isPaintFar = false;
+		//			}
+		//			nCloud = Res.abs(Res.random(2, 5));
+		//			initCloud();
+		//		}
+		//		break;
+		//	case 14:
+		//		if (Res.abs(Res.random(0, 2)) == 0)
+		//		{
+		//			isFog = true;
+		//			initCloud();
+		//		}
+		//		break;
+		//	}
 	}
 
 	public static void clearImage()
@@ -590,22 +590,22 @@ public class BackgroudEffect
 
 	public void paintFar(mGraphics g)
 	{
-		g.translate(-g.getTranslateX(), -g.getTranslateY());
-		if (typeEff == 4)
-		{
-			for (int i = 0; i < sum; i++)
-			{
-				g.drawRegion(imgSao, 0, 16 * frame[i], 16, 16, 0, x[i], y[i], 0);
-			}
-		}
-		if (typeEff == 9)
-		{
-			g.setColor(16777215);
-			for (int j = 0; j < num; j++)
-			{
-				g.drawImage((wP[j] != 1) ? imgChamTron2 : imgChamTron1, x[j], y[j], 3);
-			}
-		}
+		//g.translate(-g.getTranslateX(), -g.getTranslateY());
+		//if (typeEff == 4)
+		//{
+		//	for (int i = 0; i < sum; i++)
+		//	{
+		//		g.drawRegion(imgSao, 0, 16 * frame[i], 16, 16, 0, x[i], y[i], 0);
+		//	}
+		//}
+		//if (typeEff == 9)
+		//{
+		//	g.setColor(16777215);
+		//	for (int j = 0; j < num; j++)
+		//	{
+		//		g.drawImage((wP[j] != 1) ? imgChamTron2 : imgChamTron1, x[j], y[j], 3);
+		//	}
+		//}
 	}
 
 	public void update()
@@ -827,181 +827,181 @@ public class BackgroudEffect
 
 	public void paintFront(mGraphics g)
 	{
-		try
-		{
-			switch (typeEff)
-			{
-			case 3:
-				break;
-			case 0:
-			case 12:
-			{
-				int cmx = GameScr.cmx;
-				int cmy = GameScr.cmy;
-				for (int i = 0; i < sum; i++)
-				{
-					if (type[i] == 2 && x[i] >= GameScr.cmx && x[i] <= GameCanvas.w + GameScr.cmx && y[i] >= GameScr.cmy && y[i] <= GameCanvas.h + GameScr.cmy)
-					{
-						if (activeEff[i])
-						{
-							g.drawRegion(imgHatMua, 0, 10 * frame[i], 13, 10, 0, x[i], y[i] - 10, 0);
-						}
-						else
-						{
-							g.drawImage(imgMua1, x[i], y[i], 0);
-						}
-					}
-				}
-				break;
-			}
-			case 1:
-			case 2:
-			case 5:
-			case 6:
-			case 7:
-			case 11:
-			case 15:
-				if (typeEff == 15)
-				{
-					if (SmallImage.imgNew[11120] != null && SmallImage.imgNew[11120].img != null)
-					{
-						imgLacay = SmallImage.imgNew[11120].img;
-					}
-					if (imgLacay == null)
-					{
-						break;
-					}
-				}
-				paintLacay1(g, imgLacay);
-				break;
-			case 13:
-				if (!isPaintFar)
-				{
-					paintCloud2(g);
-				}
-				break;
-			case 4:
-			case 8:
-			case 9:
-			case 10:
-			case 14:
-				break;
-			}
-		}
-		catch (Exception)
-		{
-		}
+		//try
+		//{
+		//	switch (typeEff)
+		//	{
+		//	case 3:
+		//		break;
+		//	case 0:
+		//	case 12:
+		//	{
+		//		int cmx = GameScr.cmx;
+		//		int cmy = GameScr.cmy;
+		//		for (int i = 0; i < sum; i++)
+		//		{
+		//			if (type[i] == 2 && x[i] >= GameScr.cmx && x[i] <= GameCanvas.w + GameScr.cmx && y[i] >= GameScr.cmy && y[i] <= GameCanvas.h + GameScr.cmy)
+		//			{
+		//				if (activeEff[i])
+		//				{
+		//					g.drawRegion(imgHatMua, 0, 10 * frame[i], 13, 10, 0, x[i], y[i] - 10, 0);
+		//				}
+		//				else
+		//				{
+		//					g.drawImage(imgMua1, x[i], y[i], 0);
+		//				}
+		//			}
+		//		}
+		//		break;
+		//	}
+		//	case 1:
+		//	case 2:
+		//	case 5:
+		//	case 6:
+		//	case 7:
+		//	case 11:
+		//	case 15:
+		//		if (typeEff == 15)
+		//		{
+		//			if (SmallImage.imgNew[11120] != null && SmallImage.imgNew[11120].img != null)
+		//			{
+		//				imgLacay = SmallImage.imgNew[11120].img;
+		//			}
+		//			if (imgLacay == null)
+		//			{
+		//				break;
+		//			}
+		//		}
+		//		paintLacay1(g, imgLacay);
+		//		break;
+		//	case 13:
+		//		if (!isPaintFar)
+		//		{
+		//			paintCloud2(g);
+		//		}
+		//		break;
+		//	case 4:
+		//	case 8:
+		//	case 9:
+		//	case 10:
+		//	case 14:
+		//		break;
+		//	}
+		//}
+		//catch (Exception)
+		//{
+		//}
 	}
 
 	public void paintLacay1(mGraphics g, Image img)
 	{
-		int num = ((typeEff != 11) ? 4 : 3);
-		num = ((typeEff != 15) ? 4 : 4);
-		if (typeEff == 11)
-		{
-			PIXEL = 5;
-		}
-		for (int i = 0; i < sum; i++)
-		{
-			if (i % 3 == 0 && x[i] >= GameScr.cmx && x[i] <= GameCanvas.w + GameScr.cmx && y[i] >= GameScr.cmy && y[i] <= GameCanvas.h + GameScr.cmy && img != null)
-			{
-				g.drawRegion(img, 0, PIXEL * frame[i], img.getWidth(), PIXEL, 0, x[i], y[i], 0);
-			}
-		}
+		//int num = ((typeEff != 11) ? 4 : 3);
+		//num = ((typeEff != 15) ? 4 : 4);
+		//if (typeEff == 11)
+		//{
+		//	PIXEL = 5;
+		//}
+		//for (int i = 0; i < sum; i++)
+		//{
+		//	if (i % 3 == 0 && x[i] >= GameScr.cmx && x[i] <= GameCanvas.w + GameScr.cmx && y[i] >= GameScr.cmy && y[i] <= GameCanvas.h + GameScr.cmy && img != null)
+		//	{
+		//		g.drawRegion(img, 0, PIXEL * frame[i], img.getWidth(), PIXEL, 0, x[i], y[i], 0);
+		//	}
+		//}
 	}
 
 	public void paintLacay2(mGraphics g, Image img)
 	{
-		int num = ((typeEff != 11) ? 4 : 3);
-		num = ((typeEff != 15) ? 4 : 4);
-		if (typeEff == 11)
-		{
-			PIXEL = 5;
-		}
-		for (int i = 0; i < sum; i++)
-		{
-			if (i % 3 != 0 && x[i] >= GameScr.cmx && x[i] <= GameCanvas.w + GameScr.cmx && y[i] >= GameScr.cmy && y[i] <= GameCanvas.h + GameScr.cmy && img != null)
-			{
-				g.drawRegion(img, 0, PIXEL * frame[i], img.getWidth(), PIXEL, 0, x[i], y[i], 0);
-			}
-		}
+		//int num = ((typeEff != 11) ? 4 : 3);
+		//num = ((typeEff != 15) ? 4 : 4);
+		//if (typeEff == 11)
+		//{
+		//	PIXEL = 5;
+		//}
+		//for (int i = 0; i < sum; i++)
+		//{
+		//	if (i % 3 != 0 && x[i] >= GameScr.cmx && x[i] <= GameCanvas.w + GameScr.cmx && y[i] >= GameScr.cmy && y[i] <= GameCanvas.h + GameScr.cmy && img != null)
+		//	{
+		//		g.drawRegion(img, 0, PIXEL * frame[i], img.getWidth(), PIXEL, 0, x[i], y[i], 0);
+		//	}
+		//}
 	}
 
 	public void paintBehindTile(mGraphics g)
 	{
-		switch (typeEff)
-		{
-		case 8:
-			g.drawRegion(imgShip, 0, 0, imgShip.getWidth(), imgShip.getHeight(), trans, xShip, yShip, 3);
-			if (way == 1 || way == 2)
-			{
-				int num = ((trans != 0) ? 25 : (-25));
-				g.drawRegion(imgFire1, 0, frameFire * 8, 20, 8, trans, xShip + num, yShip + 5, 3);
-			}
-			else
-			{
-				int num2 = ((trans != 0) ? (-11) : 11);
-				g.drawRegion(imgFire2, 0, frameFire * 18, 8, 18, trans, xShip + num2, yShip + 22, 3);
-			}
-			break;
-		case 13:
-			if (isPaintFar)
-			{
-				paintCloud2(g);
-			}
-			break;
-		}
-	}
+	//	switch (typeEff)
+	//	{
+	//	case 8:
+	//		g.drawRegion(imgShip, 0, 0, imgShip.getWidth(), imgShip.getHeight(), trans, xShip, yShip, 3);
+	//		if (way == 1 || way == 2)
+	//		{
+	//			int num = ((trans != 0) ? 25 : (-25));
+	//			g.drawRegion(imgFire1, 0, frameFire * 8, 20, 8, trans, xShip + num, yShip + 5, 3);
+	//		}
+	//		else
+	//		{
+	//			int num2 = ((trans != 0) ? (-11) : 11);
+	//			g.drawRegion(imgFire2, 0, frameFire * 18, 8, 18, trans, xShip + num2, yShip + 22, 3);
+	//		}
+	//		break;
+	//	case 13:
+	//		if (isPaintFar)
+	//		{
+	//			paintCloud2(g);
+	//		}
+	//		break;
+	//	}
+	//}
 
-	public void paintBack(mGraphics g)
-	{
-		switch (typeEff)
-		{
-		case 3:
-			break;
-		case 0:
-		{
-			int cmx = GameScr.cmx;
-			int cmy = GameScr.cmy;
-			g.setColor(10742731);
-			for (int i = 0; i < sum; i++)
-			{
-				if (type[i] != 2 && x[i] >= GameScr.cmx && x[i] <= GameCanvas.w + GameScr.cmx && y[i] >= GameScr.cmy && y[i] <= GameCanvas.h + GameScr.cmy)
-				{
-					g.drawImage(imgMua2, x[i], y[i], 0);
-				}
-			}
-			break;
-		}
-		case 1:
-		case 2:
-		case 5:
-		case 6:
-		case 7:
-		case 11:
-		case 15:
-			if (typeEff == 15)
-			{
-				if (SmallImage.imgNew[11120] != null && SmallImage.imgNew[11120].img != null)
-				{
-					imgLacay = SmallImage.imgNew[11120].img;
-				}
-				if (imgLacay == null)
-				{
-					break;
-				}
-			}
-			paintLacay2(g, imgLacay);
-			break;
-		case 4:
-		case 8:
-		case 9:
-		case 10:
-		case 12:
-		case 13:
-		case 14:
-			break;
-		}
+	//public void paintBack(mGraphics g)
+	//{
+	//	switch (typeEff)
+	//	{
+	//	case 3:
+	//		break;
+	//	case 0:
+	//	{
+	//		int cmx = GameScr.cmx;
+	//		int cmy = GameScr.cmy;
+	//		g.setColor(10742731);
+	//		for (int i = 0; i < sum; i++)
+	//		{
+	//			if (type[i] != 2 && x[i] >= GameScr.cmx && x[i] <= GameCanvas.w + GameScr.cmx && y[i] >= GameScr.cmy && y[i] <= GameCanvas.h + GameScr.cmy)
+	//			{
+	//				g.drawImage(imgMua2, x[i], y[i], 0);
+	//			}
+	//		}
+	//		break;
+	//	}
+	//	case 1:
+	//	case 2:
+	//	case 5:
+	//	case 6:
+	//	case 7:
+	//	case 11:
+	//	case 15:
+	//		if (typeEff == 15)
+	//		{
+	//			if (SmallImage.imgNew[11120] != null && SmallImage.imgNew[11120].img != null)
+	//			{
+	//				imgLacay = SmallImage.imgNew[11120].img;
+	//			}
+	//			if (imgLacay == null)
+	//			{
+	//				break;
+	//			}
+	//		}
+	//		paintLacay2(g, imgLacay);
+	//		break;
+	//	case 4:
+	//	case 8:
+	//	case 9:
+	//	case 10:
+	//	case 12:
+	//	case 13:
+	//	case 14:
+	//		break;
+	//	}
 	}
 
 	public static void addEffect(int id)
@@ -1055,17 +1055,17 @@ public class BackgroudEffect
 
 	public static void paintBackAll(mGraphics g)
 	{
-		for (int i = 0; i < vBgEffect.size(); i++)
-		{
-			((BackgroudEffect)vBgEffect.elementAt(i)).paintBack(g);
-		}
+		//for (int i = 0; i < vBgEffect.size(); i++)
+		//{
+		//	((BackgroudEffect)vBgEffect.elementAt(i)).paintBack(g);
+		//}
 	}
 
 	public static void updateEff()
 	{
-		for (int i = 0; i < vBgEffect.size(); i++)
-		{
-			((BackgroudEffect)vBgEffect.elementAt(i)).update();
-		}
+		//for (int i = 0; i < vBgEffect.size(); i++)
+		//{
+		//	((BackgroudEffect)vBgEffect.elementAt(i)).update();
+		//}
 	}
 }

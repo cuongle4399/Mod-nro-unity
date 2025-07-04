@@ -480,9 +480,9 @@ public class GameCanvas : IActionListener
 			borderConnerH = mGraphics.getImageHeight(imgBorder[0]);
 			borderCenterW = mGraphics.getImageWidth(imgBorder[1]);
 			borderCenterH = mGraphics.getImageHeight(imgBorder[1]);
-			Panel.graphics = Rms.loadRMSInt("lowGraphic");
-			lowGraphic = Rms.loadRMSInt("lowGraphic") == 1;
-			GameScr.isPaintChatVip = ((Rms.loadRMSInt("serverchat") != 1) ? true : false);
+			Panel.graphics = 1;// Rms.loadRMSInt("lowGraphic")
+            lowGraphic = false ;// Rms.loadRMSInt("lowGraphic") == 1
+            GameScr.isPaintChatVip = ((Rms.loadRMSInt("serverchat") != 1) ? true : false);
 			Char.isPaintAura = Rms.loadRMSInt("isPaintAura") == 1;
 			Char.isPaintAura2 = Rms.loadRMSInt("isPaintAura2") == 1;
 			Res.init();

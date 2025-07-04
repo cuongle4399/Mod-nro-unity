@@ -171,6 +171,8 @@ public class Main : MonoBehaviour
     {
         if (!isRun)
         {
+            Application.targetFrameRate = 90;
+            QualitySettings.vSyncCount = 0;
             Screen.orientation = ScreenOrientation.AutoRotation;
             Application.runInBackground = true;
             base.useGUILayout = false;

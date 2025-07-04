@@ -316,8 +316,8 @@ namespace Assets.src.g
 			}
 			myVector.addElement(new Command(mResources.forgetPass, this, 1003, null));
 			myVector.addElement(new Command(mResources.website, this, 1005, null));
-			int num = Rms.loadRMSInt("lowGraphic");
-			if (num == 1)
+			int num = 1;// Rms.loadRMSInt("lowGraphic")
+            if (num == 1)
 			{
 				myVector.addElement(new Command(mResources.increase_vga, this, 10041, null));
 			}

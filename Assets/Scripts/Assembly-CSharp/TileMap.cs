@@ -238,14 +238,14 @@ public class TileMap
 
     public static BgItem getBIById(int id)
     {
-        for (int i = 0; i < vItemBg.size(); i++)
-        {
-            BgItem bgItem = (BgItem)vItemBg.elementAt(i);
-            if (bgItem.id == id)
-            {
-                return bgItem;
-            }
-        }
+        //for (int i = 0; i < vItemBg.size(); i++)
+        //{
+        //    BgItem bgItem = (BgItem)vItemBg.elementAt(i);
+        //    if (bgItem.id == id)
+        //    {
+        //        return bgItem;
+        //    }
+        //}
         return null;
     }
 
@@ -817,7 +817,7 @@ public class TileMap
         {
             return;
         }
-        g.setColor(16711680);
+        g.setColor(0x000000);
         GameScr.gI().paintBgItem(g, 1);
         for (int i = 0; i < GameScr.vItemMap.size(); i++)
         {
