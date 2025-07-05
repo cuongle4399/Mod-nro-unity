@@ -37,7 +37,7 @@ public class T1 : mResources
         mResources.defend = "Bảo vệ";
         mResources.follow = "Đi theo";
         mResources.pet = "Đệ tử";
-        mResources.maychutathoacmatsong = "Máy chủ bảo trì hoặc proxy hết hạn(nếu có lắp)";
+        mResources.maychutathoacmatsong = "Máy chủ bảo trì hoặc tắt sóng";
         mResources.cauhinhthap = "Cấu hình thấp";
         mResources.cauhinhcao = "Cấu hình cao";
         mResources.cauhinhthuong = "Cấu hình thường";

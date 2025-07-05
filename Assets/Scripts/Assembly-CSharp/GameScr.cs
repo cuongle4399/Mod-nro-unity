@@ -7569,8 +7569,20 @@ public class GameScr : mScreen, IChatable
 			g.fillRect(i * w, GameCanvas.h - 2, 1, 2);
 		}
 	}
+    public static void RemovefindCharInMap(int charId)
+    {
+        for (int i = 0; i < vCharInMap.size(); i++)
+        {
+            Char obj = (Char)vCharInMap.elementAt(i);
+            if (obj.charID == charId)
+            {
+                vCharInMap.removeElementAt(i);
+                i--;
+            }
+        }
+    }
 
-	private void paint_ios_bg(mGraphics g)
+    private void paint_ios_bg(mGraphics g)
 	{
 		if (mSystem.clientType == 5)
 		{

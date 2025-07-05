@@ -4014,10 +4014,8 @@ public class Controller : IMessageHandler
 							break;
 						}
 					}
-					if (GameScr.findCharInMap(obj16.charID) == null)
-					{
-						GameScr.vCharInMap.addElement(obj16);
-					}
+					GameScr.RemovefindCharInMap(charID);
+                    GameScr.vCharInMap.addElement(obj16);
 					obj16.isMonkey = msg.reader().readByte();
 					short num183 = msg.reader().readShort();
 					Res.outz("mount id= " + num183 + "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
