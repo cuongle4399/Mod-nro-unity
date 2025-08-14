@@ -1,0 +1,22 @@
+# Unity generated folders
+[Ll]ibrary/
+[Tt]emp/
+[Bb]uild/
+[Oo]bj/
+[Ll]ogs/
+[Mm]emoryCaptures/
+
+# IDE settings
+.vs/
+*.csproj
+*.sln
+*.user
+*.suo
+
+# Rider
+.idea/
+*.iml
+
+# OS-specific
+.DS_Store
+Thumbs.db
