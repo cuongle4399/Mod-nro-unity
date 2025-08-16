@@ -1,0 +1,3 @@
+*.cs linguist-vendored
+*.java linguist-vendored
+*.js linguist-vendored
